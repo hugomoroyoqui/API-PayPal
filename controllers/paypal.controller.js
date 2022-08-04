@@ -4,7 +4,7 @@ try {
     paypalController.getAllPayPalOrders = async (req, res) => {
         if(connection){
             await connection.query(
-                "SELECT * FROM paypal_order WHERE created_date > '"+req.params.desde+"' AND created_date < '"+req.params.hasta+"' ORDER BY created_date DESC;",
+                "SELECT * FROM paypal_order;",
                 (err, rows) => {
                     if(err){
                         res.status(500).json(err);
