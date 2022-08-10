@@ -4,7 +4,7 @@ try {
     paypalController.getAllPayPalOrders = async (req, res) => {
         if(connection){
             await connection.query(
-                "SELECT * FROM paypal_order;",
+                "SELECT * FROM paypal_order WHERE created_date > '"+req.params.desde+"' AND created_date < '"+req.params.hasta+"' ORDER BY created_date DESC;",
                 (err, rows) => {
                     if(err){
                         res.status(500).json(err);
@@ -34,8 +34,8 @@ try {
     paypalController.addPayPalOrder = async (req, res) => {
         if(connection){
             await connection.query(
-                "INSERT INTO paypal_order (paypal_order_id, paypal_payer_id, paypal_payer_email, paypal_country_code, paypal_amount, paypal_currency) VALUES " + 
-                "('"+req.body.paypal_order_id+"', '"+req.body.paypal_payer_id+"', '"+req.body.paypal_payer_email+"', '"+req.body.paypal_country_code+"', "+req.body.paypal_amount+", '"+req.body.paypal_currency+"');",
+                "INSERT INTO paypal_order (paypal_order_id, paypal_payer_id, paypal_payer_email, paypal_country_code, paypal_amount, paypal_currency, user_id) VALUES " + 
+                "('"+req.body.paypal_order_id+"', '"+req.body.paypal_payer_id+"', '"+req.body.paypal_payer_email+"', '"+req.body.paypal_country_code+"', "+req.body.paypal_amount+", '"+req.body.paypal_currency+"', "+req.body.user_id+");",
                 (err, rows) => { 
                     if(err){
                         res.status(500).json(err);
