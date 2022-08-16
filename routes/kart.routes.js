@@ -6,7 +6,7 @@ try {
     router.get('/:user_id/', kartController.getAllKart);
     router.post('/', kartController.addToKart);
     router.put('/', kartController.deleteProductInKart);
-    router.delete('/all/', kartController.deleteAllProductsInKart);
+    router.delete('/', kartController.deleteAllProductsInKart);
     
     module.exports = router;   
 } catch (error) {
