@@ -4,7 +4,7 @@ try {
     ordersController.getAllOrders = async (req, res) => {
         if(connection){
             await connection.query(
-                "SELECT * FROM orders WHERE status = 1 ORDER BY created_date DESC;",
+                "SELECT * FROM orders WHERE status = 1 ORDER BY creation_date DESC;",
                 (err, rows) => {
                     if(err){
                         res.status(500).json(err);

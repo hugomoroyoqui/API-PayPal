@@ -3,6 +3,7 @@ try {
     const router = express.Router();
     const kartController = require('../controllers/kart.controller');
     
+    router.get('/:user_id/', kartController.getInKart);
     router.get('/user/:user_id/', kartController.getProductsInKart);
     router.get('/order/:order_id/', kartController.getProductsOfOrder);
     router.post('/user/', kartController.addToKart);
