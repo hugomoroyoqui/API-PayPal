@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-08-2023 a las 07:44:23
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 04-09-2023 a las 06:35:09
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,20 @@ CREATE TABLE `kart` (
   `order_id` int(11) DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `kart`
+--
+
+INSERT INTO `kart` (`kart_id`, `user_id`, `product_id`, `quantity`, `now_price`, `order_id`, `status`, `created_date`) VALUES
+(1, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 2, 1, 7119, NULL, 1, '2023-08-15 21:21:02'),
+(2, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 3, 1, 3229, NULL, 1, '2023-08-15 21:21:23'),
+(3, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 1, 1, 7209, NULL, 1, '2023-08-15 21:21:25'),
+(4, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 2, 1, 7119, NULL, 1, '2023-08-15 21:21:36'),
+(5, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 3, 1, 3229, NULL, 1, '2023-08-15 21:21:38'),
+(6, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 3, 1, 3229, NULL, 1, '2023-08-15 21:21:41'),
+(7, 'lxt6SdQ3ZBM7fgY7AAMR95Ze8uw2', 3, 1, 3229, NULL, 1, '2023-08-15 21:21:44');
 
 -- --------------------------------------------------------
 
@@ -55,7 +68,7 @@ CREATE TABLE `orders` (
   `paypal_amount` float NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `creation_date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -71,7 +84,7 @@ CREATE TABLE `products` (
   `stock` mediumint(9) NOT NULL DEFAULT 1,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `creation_date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -80,8 +93,7 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`product_id`, `name`, `image`, `price`, `stock`, `status`, `creation_date`) VALUES
 (1, 'Tarjeta de Video Gigabyte NVIDIA GeForce RTX 4060 AERO OC, 8GB 128-bit GDDR6, PCI Express 4.0', 'https://firebasestorage.googleapis.com/v0/b/appventas-339b9.appspot.com/o/grafica.jpg?alt=media&token=f05891b0-b106-402f-baa8-88894a9dcee0', 7209, 18, 1, '2023-08-07 23:38:53'),
 (2, 'Procesador AMD Ryzen 9 7900 Radeon Graphics, S-AM5, 3.70GHz, 12-Core, 64MB L3 Cache', 'https://firebasestorage.googleapis.com/v0/b/appventas-339b9.appspot.com/o/procesador.jpg?alt=media&token=2b3b7589-d1b8-424f-8e71-2b91393473ad', 7119, 9, 1, '2023-08-07 23:38:53'),
-(3, 'SSD XPG GAMMIX S70, 1TB, PCI Express 4.0, NVMe, M.2', 'https://firebasestorage.googleapis.com/v0/b/appventas-339b9.appspot.com/o/ssd.jpg?alt=media&token=81551f9d-d3e0-474f-9d72-dc7d79575f46', 3229, 17, 1, '2023-08-07 23:40:35'),
-(4, 'Kit Memoria RAM XPG Spectrix D50 RGB DDR4, 3200MHz, 16GB (2 x 8GB), Non-ECC, CL16, XMP, Blanco', 'https://firebasestorage.googleapis.com/v0/b/appventas-339b9.appspot.com/o/ram.jpg?alt=media&token=5939311c-86b3-425e-b530-36b2fbd16d7d', 789, 4, 1, '2023-08-07 23:40:35');
+(3, 'SSD XPG GAMMIX S70, 1TB, PCI Express 4.0, NVMe, M.2', 'https://firebasestorage.googleapis.com/v0/b/appventas-339b9.appspot.com/o/ssd.jpg?alt=media&token=81551f9d-d3e0-474f-9d72-dc7d79575f46', 3229, 17, 1, '2023-08-07 23:40:35');
 
 --
 -- Índices para tablas volcadas
@@ -113,7 +125,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `kart`
 --
 ALTER TABLE `kart`
-  MODIFY `kart_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `kart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
